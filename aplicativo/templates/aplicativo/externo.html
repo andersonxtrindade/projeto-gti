@@ -1,0 +1,82 @@
+{%extends 'base.html'%}
+
+{%block 'conteudo'%}
+<div class="container">
+    <h3 style="text-align: center;">Relatório Windows 10 - Externo(Pós Formatação)</h3>
+    <form>
+        <div class="form-row mt-3">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="SESSP">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Usuário">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Coordenadoria">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Setor">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Prédio">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Sala">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Ramal">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Modelo">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="CPU">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Memória RAM">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="HD">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Técnico Inicio">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Técnico Término">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="N° Patrimonio">
+              <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Nº de Série">
+            </div>
+            <div class="col">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check1">
+                <label class="custom-control-label" for="check1">Nome de Usuário de Instalação (user) - NÃO COLOCAR SENHA</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check2">
+                <label class="custom-control-label" for="check2">Ativação e configuração de senha do Usuário Administrador SEM SENHA</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check3">
+                <label class="custom-control-label" for="check3">Desativar usuário user</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check4">
+                <label class="custom-control-label" for="check4">Ativar com Chave Key da maquina</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check5">
+                <label class="custom-control-label" for="check5">Instalar Drivers (caso necessário)</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check11">
+                <label class="custom-control-label" for="check11">Opções de energia:</label>
+                <ul>
+                  <li>Selecione alto desempenho (clique em Alterar configurações do plano)</li>
+                  <li>Marque Desligar video / Supender atividade do computador em Nunca.</li>
+                  <li>Entre em Alterar configuraçoes de energia avançadas: </li>
+                  <li>Na opção Disco rígido:</li>
+                  <li> Desligar o disco rígido após Configuração marque Nunca.</li>
+                  <li>Na opção Botões de energia e tampa:</li>
+                  <li> Ação do botão para ligar/desligar Configuração marque Desligar.</li>
+                  <li> Ação do botão para suspenção: Nada a fazer.</li>
+                </ul>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check12">
+                <label class="custom-control-label" for="check12">Configurar msconfig:</label>
+                <ul>
+                  <li>Inicializ. do S.O./Opç. Avanç./habilitar max. de núcleos do CPU (processador)</li>
+                  <li>Serviços/Ocult. Soft. MS./Manter apenas serv. WatchGuard e Symantec ativos.</li>
+                  <li>Inicializ. de Programas/Desabilitar tudo, menos drivers e AutoDesk*</li>
+                </ul>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check14">
+                <label class="custom-control-label" for="check14">Atualizações do Windows / Office (via Windows Update [Ocultar MSE e Skype apenas em micros internos])</label>
+              </div>
+            </div>
+        </div>
+        <div class="mb-2 mt-5">
+          <label for="text">Obs.:</label>
+          <textarea class="form-control" id="text" rows="5"></textarea>
+        </div>
+        <button type="button" class="mb-3 btn btn-secondary btn-lg btn-block">Enviar</button>
+    </form>
+</div>
+{%endblock%} 

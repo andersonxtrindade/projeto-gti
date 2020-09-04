@@ -1,0 +1,169 @@
+{%extends 'base.html'%}
+{%block 'conteudo'%}
+<div class="container">
+  <h3 style="text-align: center;">Relatório Windows 10 - Interno(Pós Formatação)</h3>
+  <p>
+    Insira um novo relatório {{user.first_name}}.
+  </p>
+  <form action="/interno/" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrfmiddlewaretoken" value="J9ODpVk1Lz4zWi5AavAnuwCSWtQwhEJJUNbeKGsWfKFJKQ0dDhaHTfmH8dv5l0y7">
+      <div class="form-row mt-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Data de Criação" name="data_criacao" required id="id_data_criacao"><input type="hidden" name="initial-data_criacao" id="initial-id_data_criacao">
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Numero do chamado" name="num_chamado"  id="id_num_chamado">
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="SESSP - Somente numeros" name="sessp" maxlength="255" id="id_sessp">
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Usuário" name="usuario" maxlength="255" id="id_usuario">
+            <select style="margin-top: 5px;" type="text" class="form-control" name="coordenadoria" maxlength="255" id="id_coordenadoria">
+              <option selected>Escolha a coordenadoria...</option>
+              <option value="CAF">CAF</option>
+              <option value="GS">GS</option>
+              <option value="CCD-CVE">CCD-CVE</option>
+              <option value="CRS">CRS</option>
+              <option value="CGA">CGA</option>
+              <option value="CRH">CRH</option>
+            </select>
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Setor" name="setor" maxlength="255" id="id_setor">
+            <select style="margin-top: 5px;" class="form-control" name="predio" maxlength="255" id="id_predio">
+              <option selected>Escolha o prédio...</option>
+              <option value="Dr. Arnaldo">Dr. Arnaldo</option>
+              <option value="Dr. Enéas">Dr. Enéas</option>
+            </select>
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Sala" name="sala" maxlength="255" id="id_sala">
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Ramal" name="ramal" maxlength="255" id="id_ramal">
+            <select style="margin-top: 5px;" class="form-control" name="modelo" maxlength="255" id="id_modelo">
+              <option selected>Escolha o modelo...</option>
+              <option value="Think Centre">Think Centre</option>
+              <option value="HP">HP</option>
+              <option value="Dell">Dell</option>
+              <option value="Daten">Daten</option>
+            </select>
+            <select style="margin-top: 5px;" class="form-control" name="cpu" maxlength="255" id="id_cpu">
+              <option selected>Escolha a CPU...</option>
+              <option value="core 2 duo">Core 2 Duo</option>
+              <option value="i3">I3</option>
+              <option value="i5">I5</option>
+              <option value="i7">I7</option>
+            </select>
+            <select style="margin-top: 5px;"class="form-control" name="ram" maxlength="255" id="id_ram">
+              <option selected>Escolha o tamanho da RAM...</option>
+              <option value="2GB">2GB</option>
+              <option value="4GB">4GB</option>
+              <option value="6GB">6GB</option>
+              <option value="8GB">8GB</option>
+              <option value="10GB">10GB</option>
+              <option value="12GB">12GB</option>
+              <option value="16GB">16GB</option>
+              <option value="32GB">32GB</option>
+            </select>
+            <select style="margin-top: 5px;" class="form-control" name="hd" maxlength="255" id="id_hd">
+              <option selected>Escolha o tamanho do HD...</option>
+              <option value="250GB">250GB</option>
+              <option value="320GB">320GB</option>
+              <option value="500GB">500GB</option>
+              <option value="1000GB">1000GB</option>
+            </select>
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Técnico Inicio" name="tecinic" maxlength="255" id="id_tecinic">
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Técnico Término" name="tecfim" maxlength="255" id="id_tecfim">
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="N° Patrimonio" name="patrimonio" maxlength="255" id="id_patrimonio">
+            <input style="margin-top: 5px;" type="text" class="form-control" placeholder="Nº de Série"  name="serie" maxlength="255" id="id_serie">
+          </div>
+          <div class="col">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check1" id="id_check1" class="custom-control-input">
+              <label class="custom-control-label" for="id_check1">Nome de Usuário de Instalação (user) - NÃO COLOCAR SENHA</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check2" id="id_check2" class="custom-control-input">
+              <label class="custom-control-label" for="id_check2">Ativação e configuração de senha do Usuário Administrador</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check3" id="id_check3" class="custom-control-input">
+              <label class="custom-control-label" for="id_check3">Desativar usuário user</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check4" id="id_check4" class="custom-control-input">
+              <label class="custom-control-label" for="id_check4">Ativar com Chave Key da maquina</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check5" id="id_check5" class="custom-control-input">
+              <label class="custom-control-label" for="id_check5">Instalar Drivers (caso necessário)</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check6" id="id_check6" class="custom-control-input">
+              <label class="custom-control-label" for="id_check6">Desabilitar Protocolo TCP/IP versão 6 ( TCP/IPv6 )</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check7" id="id_check7"class="custom-control-input">
+              <label class="custom-control-label" for="id_check7">Inserir no Domínio (sessp.gov.br) e REINICIAR</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check8" id="id_check8" class="custom-control-input">
+              <label class="custom-control-label" for="id_check8">Nome do Computador (sesspxxxx – de acordo com a etiqueta)</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check9" id="id_check9" class="custom-control-input">
+              <label class="custom-control-label" for="id_check9">Verificar se serviço do WatchGuard** está ativo.
+                </label>
+                <ul>
+                  <li>Entrar na aba recuperação e selecionar reiniciar o serviço para falhas</li>
+                </ul>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check10" id="id_check10" class="custom-control-input" id="check10">
+              <label class="custom-control-label" for="id_check10">Adição do usuário padrão como ADM e logar</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check11" id="id_check11" class="custom-control-input">
+              <label class="custom-control-label" for="id_check11">Opções de energia:</label>
+              <ul>
+                <li>Selecione alto desempenho (clique em Alterar configurações do plano)</li>
+                <li>Marque Desligar video / Supender atividade do computador em Nunca.</li>
+                <li>Entre em Alterar configuraçoes de energia avançadas: </li>
+                <li>Na opção Disco rígido:</li>
+                <li> Desligar o disco rígido após Configuração marque Nunca.</li>
+                <li>Na opção Botões de energia e tampa:</li>
+                <li> Ação do botão para ligar/desligar Configuração marque Desligar.</li>
+                <li> Ação do botão para suspenção: Nada a fazer.</li>
+              </ul>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check12" id="id_check12" class="custom-control-input">
+              <label class="custom-control-label" for="id_check12">Configurar msconfig:</label>
+              <ul>
+                <li>Inicializ. do S.O./Opç. Avanç./habilitar max. de núcleos do CPU (processador)</li>
+                <li>Serviços/Ocult. Soft. MS./Manter apenas serv. WatchGuard e Symantec ativos.</li>
+                <li>Inicializ. de Programas/Desabilitar tudo, menos drivers e AutoDesk*</li>
+              </ul>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check13" id="id_check13" class="custom-control-input">
+              <label class="custom-control-label" for="id_check13">Desabilitar superfetch:</label>
+              <ul>
+                <li>Aperte windows + r.</li>
+                <li>Digite services.msc, procure superfetch e desative-o.</li>
+              </ul>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check14" id="id_check14" class="custom-control-input">
+              <label class="custom-control-label" for="id_check14">Ativação do Office 2010 (Desinstalar o Office 365)</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check15" id="id_check15" class="custom-control-input">
+              <label class="custom-control-label" for="id_check15">Atualizações do Windows / Office (via Windows Update [Ocultar MSE e Skype apenas em micros internos])</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="check16" id="id_check16" class="custom-control-input">
+              <label class="custom-control-label" for="id_check16">Desativar o windows update.</label>
+            </div>
+          </div>
+      </div>
+      <div class="mb-2">
+        <label for="id_obs">Obs:</label>
+        <textarea class="form-control" name="obs" cols="40" rows="5" required id="id_obs"></textarea>
+      </div>
+      <button type="submit" class="mb-3 btn btn-secondary btn-lg btn-block">Enviar</button>
+</form>
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,126 @@
+{%extends 'base.html'%}
+{%block 'conteudo'%}
+<div class="container">
+  <h3 class="mb-3" style="text-align: center;">Relatório Windows 10 - Interno(Pós Formatação)</h3>
+
+  <form method="POST" action="/saida_doc/{{relatorio.id}}" class="post-form" enctype="multipart/form-data">
+    {%csrf_token%}
+      <div class="form-row mt-3">
+          <div class="col">
+            <input value="{{relatorio.id}}" type="hidden" name="id" id="id_id" required maxlength="20">
+            <input value="{{relatorio.data_criacao}}" type="text" class="form-control" placeholder="Data de Criação" name="initial-data_criacao"  id="initial-id_data_criacao">
+            <input value="{{relatorio.num_chamado}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Numero do chamado" name="num_chamado"  id="id_num_chamado">
+            <input value="{{relatorio.sessp}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="SESSP" name="sessp" maxlength="255" id="id_sessp">
+            <input value="{{relatorio.usuario}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Usuário" name="usuario" maxlength="255" id="id_usuario">
+            <input value="{{relatorio.coordenadoria}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Coordenadoria" name="coordenadoria" maxlength="255" id="id_coordenadoria">
+            <input value="{{relatorio.setor}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Setor" name="setor" maxlength="255" id="id_setor">
+            <input value="{{relatorio.predio}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Prédio" name="predio" maxlength="255" id="id_predio">
+            <input value="{{relatorio.sala}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Sala" name="sala" maxlength="255" id="id_sala">
+            <input value="{{relatorio.ramal}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Ramal" name="ramal" maxlength="255" id="id_ramal">
+            <input value="{{relatorio.modelo}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Modelo" name="modelo" maxlength="255" id="id_modelo">
+            <input value="{{relatorio.cpu}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="CPU" name="cpu" maxlength="255" id="id_cpu">
+            <input value="{{relatorio.ram}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Memória RAM" name="ram" maxlength="255" id="id_ram">
+            <input value="{{relatorio.hd}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="HD" name="hd" maxlength="255" id="id_hd">
+            <input value="{{relatorio.tecinic}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Técnico Inicio" name="tecinic" maxlength="255" id="id_tecinic">
+            <input value="{{relatorio.tecfim}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Técnico Término" name="tecfim" maxlength="255" id="id_tecfim">
+            <input value="{{relatorio.patrimonio}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="N° Patrimonio" name="patrimonio" maxlength="255" id="id_patrimonio">
+            <input value="{{relatorio.serie}}" style="margin-top: 5px;" type="text" class="form-control" placeholder="Nº de Série"  name="serie" maxlength="255" id="id_serie">
+          </div>
+          <div class="col">
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check1%} checked="checked" {%endif%} type="checkbox" name="check1" id="id_check1" class="custom-control-input">
+              <label class="custom-control-label" for="id_check1">Nome de Usuário de Instalação (user) - NÃO COLOCAR SENHA</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check2%} checked="checked" {%endif%} type="checkbox" name="check2" id="id_check2" class="custom-control-input">
+              <label class="custom-control-label" for="id_check2">Ativação e configuração de senha do Usuário Administrador</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check3%} checked="checked" {%endif%} type="checkbox" name="check3" id="id_check3" class="custom-control-input">
+              <label class="custom-control-label" for="id_check3">Desativar usuário user</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check4%} checked="checked" {%endif%} type="checkbox" name="check4" id="id_check4" class="custom-control-input">
+              <label class="custom-control-label" for="id_check4">Ativar com Chave Key da maquina</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check5%} checked="checked" {%endif%} type="checkbox" name="check5" id="id_check5" class="custom-control-input">
+              <label class="custom-control-label" for="id_check5">Instalar Drivers (caso necessário)</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check6%} checked="checked" {%endif%} type="checkbox" name="check6" id="id_check6" class="custom-control-input">
+              <label class="custom-control-label" for="id_check6">Desabilitar Protocolo TCP/IP versão 6 ( TCP/IPv6 )</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check7%} checked="checked" {%endif%} type="checkbox" name="check7" id="id_check7"class="custom-control-input">
+              <label class="custom-control-label" for="id_check7">Inserir no Domínio (sessp.gov.br) e REINICIAR</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check8%} checked="checked" {%endif%} type="checkbox" name="check8" id="id_check8" class="custom-control-input">
+              <label class="custom-control-label" for="id_check8">Nome do Computador (sesspxxxx – de acordo com a etiqueta)</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check9%} checked="checked" {%endif%} type="checkbox" name="check9" id="id_check9" class="custom-control-input">
+              <label class="custom-control-label" for="id_check9">Verificar se serviço do WatchGuard** está ativo.
+                </label>
+                <ul>
+                  <li>Entrar na aba recuperação e selecionar reiniciar o serviço para falhas</li>
+                </ul>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check10%} checked="checked" {%endif%} type="checkbox" name="check10" id="id_check10" class="custom-control-input" id="check10">
+              <label class="custom-control-label" for="id_check10">Adição do usuário padrão como ADM e logar</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check11%} checked="checked" {%endif%} type="checkbox" name="check11" id="id_check11" class="custom-control-input">
+              <label class="custom-control-label" for="id_check11">Opções de energia:</label>
+              <ul>
+                <li>Selecione alto desempenho (clique em Alterar configurações do plano)</li>
+                <li>Marque Desligar video / Supender atividade do computador em Nunca.</li>
+                <li>Entre em Alterar configuraçoes de energia avançadas: </li>
+                <li>Na opção Disco rígido:</li>
+                <li> Desligar o disco rígido após Configuração marque Nunca.</li>
+                <li>Na opção Botões de energia e tampa:</li>
+                <li> Ação do botão para ligar/desligar Configuração marque Desligar.</li>
+                <li> Ação do botão para suspenção: Nada a fazer.</li>
+              </ul>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check12%} checked="checked" {%endif%} type="checkbox" name="check12" id="id_check12" class="custom-control-input">
+              <label class="custom-control-label" for="id_check12">Configurar msconfig:</label>
+              <ul>
+                <li>Inicializ. do S.O./Opç. Avanç./habilitar max. de núcleos do CPU (processador)</li>
+                <li>Serviços/Ocult. Soft. MS./Manter apenas serv. WatchGuard e Symantec ativos.</li>
+                <li>Inicializ. de Programas/Desabilitar tudo, menos drivers e AutoDesk*</li>
+              </ul>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check13%} checked="checked" {%endif%} type="checkbox" name="check13" id="id_check13" class="custom-control-input">
+              <label class="custom-control-label" for="id_check13">Desabilitar superfetch:</label>
+              <ul>
+                <li>Aperte windows + r.</li>
+                <li>Digite services.msc, procure superfetch e desative-o.</li>
+              </ul>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check14%} checked="checked" {%endif%} type="checkbox" name="check14" id="id_check14" class="custom-control-input">
+              <label class="custom-control-label" for="id_check14">Ativação do Office 2010 (Desinstalar o Office 365)</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check15%} checked="checked" {%endif%} type="checkbox" name="check15" id="id_check15" class="custom-control-input">
+              <label class="custom-control-label" for="id_check15">Atualizações do Windows / Office (via Windows Update [Ocultar MSE e Skype apenas em micros internos])</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input {%if relatorio.check16%} checked="checked" {%endif%} type="checkbox" name="check16" id="id_check16" class="custom-control-input">
+              <label class="custom-control-label" for="id_check16">Desativar o windows update.</label>
+            </div>
+          </div>
+      </div>
+      <div class="mb-2">
+        <label for="id_obs">Obs:</label>
+        <textarea class="form-control" name="obs" cols="40" rows="5" required id="id_obs">{{relatorio.obs}}</textarea>
+      </div>
+      <input type="submit" class="mb-3 btn btn-warning btn-lg btn-block">
+  </form>
+</div>
+{%endblock%}

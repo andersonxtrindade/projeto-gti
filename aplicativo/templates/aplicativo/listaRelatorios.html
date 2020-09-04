@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{%block 'conteudo'%}
+<div class="container">
+    <form method="get" action="{% url 'busca' %}" class="mb-3">
+          <div class="form-group row">
+            <div class="col-12">
+              <input class="form-control"
+                     type="search" value="{{ request.GET.termo }}"
+                     id="search-input"
+                     placeholder="Pesquise por sessp, patrimônio, numero de série ou numero do chamado..."
+                     name="termo">
+            </div>
+          </div>
+    </form>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">SESSP</th>
+        <th scope="col">Usuário</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Patrimônio</th>
+        <th scope="col">Numero de Série</th>
+        <th scope="col">Atualizar ou Saída</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for relatorio in relatorios%}
+      <tr>
+        <td>
+            <a>{{relatorio.sessp}}</a>
+        </td>
+        <td>{{relatorio.usuario}}</td>
+        <td>{{relatorio.modelo}}</td>
+        <td>{{relatorio.patrimonio}}</td>
+        <td>{{relatorio.serie}}</td>
+        <td scope="row"><a class="btn btn-sm btn-info" href="{%url 'ver_relatorio' relatorio.id%}">Atualizar ou Saída</a></td>
+      </tr>
+        {%endfor%}
+    </tbody>
+  </table>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+          {% for pagina in relatorios.paginator.page_range%}
+          {%if relatorios.number == pagina%}
+        <li class="page-item active">
+            <a class="page-link" href="?p={{pagina}}">{{pagina}}</a>
+        </li>
+          {%else%}
+          <li class="page-item">
+            <a class="page-link" href="?p={{pagina}}">{{pagina}}</a>
+        </li>
+          {%endif%}
+          {%endfor%}
+      </ul>
+    </nav>
+</div>
+{%endblock%}
